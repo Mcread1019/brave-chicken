@@ -172,6 +172,14 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.O)) // Press "O" to save
+        {
+            FindObjectOfType<PlayerDataManager>().SaveGame();
+        }
+        if (Input.GetKeyDown(KeyCode.P)) // Press "P" to load
+        {
+            FindObjectOfType<PlayerDataManager>().LoadGame();
+        }
         if (!characterController.isGrounded) {
             playerAnimator.SetBool("InAir", true);
             GetComponents<AudioSource>()[3].Stop();

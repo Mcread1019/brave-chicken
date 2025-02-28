@@ -6,6 +6,7 @@ public class GameManager : ScriptableObject
     public bool gameIsPaused;
     public GameObject MainMenu;
     public GameObject Player;
+    public int health = 100; // Default health value
 
     void Update()
     {
@@ -13,7 +14,6 @@ public class GameManager : ScriptableObject
         {
             PauseGame();
         }
-        Debug.Log(Cursor.visible);
     }
 
     public void PauseGame()
@@ -21,7 +21,6 @@ public class GameManager : ScriptableObject
         gameIsPaused = !gameIsPaused;
         if (gameIsPaused)
         {
-            Debug.Log("handle pause");
             Player.SetActive(false);
             MainMenu.SetActive(true);
             Time.timeScale = 0f;
@@ -30,9 +29,10 @@ public class GameManager : ScriptableObject
         }
         else
         {
-            Player.SetActive(false);
+            Player.SetActive(true);
             MainMenu.SetActive(false);
             Time.timeScale = 1;
         }
     }
 }
+
