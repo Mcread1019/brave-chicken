@@ -12,15 +12,15 @@ public class PlayerDataManager : MonoBehaviour
     {
         savePath = Application.persistentDataPath + "/playerData.json";
     }
-
+    //saves, position, health and the time of the game
     public void SaveGame()
     {
+        //int health = Player.health;
         PlayerData playerData = new PlayerData
         {
             position = new float[] { playerTransform.position.x, playerTransform.position.y, playerTransform.position.z },
             
-        //health = gameManager.health, // Use GameManager's health
-        //score = uiManager.GetScore() // Get score from UI
+            //health = health, // Use GameManager's health
     };
 
         string json = JsonUtility.ToJson(playerData);
